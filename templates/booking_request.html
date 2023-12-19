@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Jaypee University of Information Technology</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <h1>Booking Request Form</h1>
+    <form method="post" action="{{ url_for('booking_request') }}">
+        <label for="club_id">Club:</label>
+<select name="club_id">
+    {% for club in clubs %}
+        <option value="{{ club.ClubID }}">{{ club.ClubName }}</option>
+    {% endfor %}
+</select>
+<br>
+
+<label for="classroom_id">Classroom:</label>
+<select name="classroom_id">
+    {% for classroom in classrooms %}
+        <option value="{{ classroom.ClassroomID }}">{{ classroom.ClassroomName }}</option>
+    {% endfor %}
+</select>
+<br>
+
+        <label for="request_date">Request Date:</label>
+        <input type="date" name="request_date" required>
+        <br>
+        <label for="request_time">Request Time:</label>
+        <input type="time" name="request_time" required>
+        <br>
+        <label for="purpose">Purpose:</label>
+        <textarea name="purpose" rows="4" required></textarea>
+        <br>
+        <input type="hidden" name="is_ticket" value="False">
+        <input type="checkbox" id="is_ticket_checkbox" name="is_ticket" value="True">
+        <label for="is_ticket_checkbox">Generate Ticket</label>
+        <br>
+
+        <button type="submit">Submit Request</button>
+    </form>
+</body>
+</html>

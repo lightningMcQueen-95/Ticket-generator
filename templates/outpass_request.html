@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Head content -->
+</head>
+<body>
+    <h1>Outpass Request</h1>
+    <form method="post" action="{{ url_for('outpass_request') }}">
+        <label for="room_id">Room:</label>
+        <select name="room_id">
+            {% for room in hostel_rooms %}
+                <option value="{{ room.HostelRoomID }}">{{ room.HostelRoomName }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <label for="request_date">Request Date:</label>
+        <input type="date" name="request_date" required>
+        <br>
+        <label for="request_time">Request Time:</label>
+        <input type="time" name="request_time" required>
+        <br>
+        <label for="purpose">Purpose:</label>
+        <textarea name="purpose" rows="4" cols="50" required></textarea>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

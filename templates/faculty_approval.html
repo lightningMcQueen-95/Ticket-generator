@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Approval</title>
+</head>
+<body>
+    <h1>Faculty Approval</h1>
+
+    {% if requests %}
+        <table>
+            <tr>
+                <th>Request ID</th>
+                <th>Club ID</th>
+                <th>Classroom ID</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Purpose</th>
+                <th>Status</th>
+                <th>Is Ticket</th>
+                <th>Approval Status</th>
+                <th>Action</th>
+            </tr>
+            {% for request in requests %}
+                <tr>
+                    <td>{{ request[0] }}</td>
+                    <td>{{ request[1] }}</td>
+                    <td>{{ request[2] }}</td>
+                    <td>{{ request[3] }}</td>
+                    <td>{{ request[4] }}</td>
+                    <td>{{ request[5] }}</td>
+                    <td>{{ request[6] }}</td>
+                    <td>{{ request[7] }}</td>
+                    <td>{{ request[8] }}</td>
+                    <td>
+                        {% if request[8] == 'Pending' %}
+                            <form method="post" action="{{ url_for('approve_request', request_id=request[0]) }}">
+                                <button type="submit">Approve</button>
+                            </form>
+
+
+                        {% else %}
+                            {{ request[8] }}
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No pending requests</p>
+    {% endif %}
+</body>
+</html>

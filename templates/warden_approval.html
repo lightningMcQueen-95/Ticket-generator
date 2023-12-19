@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Head content -->
+</head>
+<body>
+    <h1>Warden Approval</h1>
+    <ul>
+        {% for outpass in outpasses %}
+            <li>
+                Request ID: {{ outpass[0] }}<br>
+                Room ID: {{ outpass[1] }}<br>
+                Date: {{ outpass[2] }}<br>
+                Time: {{ outpass[3] }}<br>
+                Purpose: {{ outpass[4] }}<br>
+                <form method="post" action="{{ url_for('approve_outpass', outpass_id=outpass[0]) }}">
+                    <button type="submit">Approve</button>
+                </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                +++++++++++++
+                
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

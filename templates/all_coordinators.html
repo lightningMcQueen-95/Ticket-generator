@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Faculty Coordinators</title>
+</head>
+<body>
+    <h1>All Faculty Coordinators</h1>
+    <ul>
+        {% for coordinator in coordinators %}
+            <li>{{ coordinator[0] }}: {{ coordinator[1] }} (Club ID: {{ coordinator[2] }})</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
